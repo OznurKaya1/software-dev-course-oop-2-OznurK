@@ -28,18 +28,22 @@ public class LemonadeStand {
     }
 
     public int getSugar() {
+
         return sugar;
     }
 
     public int getIce() {
+
         return ice;
     }
 
     public int getLemons() {
+
         return lemons;
     }
 
     public double getMoney() {
+
         return money;
     }
 
@@ -68,6 +72,18 @@ public class LemonadeStand {
     // If the lemonade is successfully made, the method should add the sale amount to the money field and return true.
     //
     // HINT: You can copy and paste the body of the sellLemonade method and should only need to modify the first line.
+
+    public boolean sellLemonade(int lemons, int sugar, int ice) {
+        Lemonade lemonade = new Lemonade(lemons, sugar, ice);
+
+        if (tryMakingLemonade(lemonade) != null) {
+            money += calculateSale(lemonade);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     private Lemonade tryMakingLemonade(Lemonade lemonade) {
         if (sugar >= lemonade.getSugar() && ice >= lemonade.getIce() && lemons >= lemonade.getLemons()) {
